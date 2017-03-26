@@ -1,0 +1,71 @@
+Storyboard:
+label Prologue 
+Something cryptic and foreboding
+Aim for 1-3 min
+Enough legit-ness to hook someone
+
+#follow 3 act structure for now -> setup, confrontation, resolution
+#max 3 routes for now
+
+Act I
+Scene 1
+Self monologue + scenery
+
+Act II
+Lorem ispum
+
+Act III
+Lorem ipsum
+
+Epilogue?
+
+-----------------------------------------------------------------------------------------------------------------------
+Ren’py script:
+# The script of the game goes in this file.
+
+#declare other assets (this is a to make/find list)
+
+
+# Declare characters used by this game. The color argument colorizes the
+# name of the character.
+
+Define p = Character(player/protag)
+We could use m = me as well
+
+init:
+	# images
+	image waterlooair = "waterlooair.jpg"
+	image feridun = "feridun.png"
+	image gooseass = “gooseass.png”
+	# characters
+	define f = Character('Feridun Hamdullahpur',color="#9400d3")
+	define ga = Character(‘u/SseCn8jx’,color=“#18b5ef”)
+# The game start
+
+label start:
+
+	# Show a background. This uses a placeholder by default, but you can
+	# add a file (named either "bg room.png" or "bg room.jpg") to the
+	# images directory to show it.
+
+	scene waterlooair
+	"You have just arrived at Waterloo."
+	"You are part of the select few who have been selected to join the new engineering program"
+	"With r/uwaterloo's rising popularity, there has been an increased need to innovate more creamy memes"
+	"Meme Engineering is only in its first year of infancy and you have been one of ten people selected to participate in this new program"
+	"You know that having a 99% from high school would
+    
+
+	show feridun
+
+	# These display lines of dialogue.
+
+	"Hello, world."
+
+	f "You've created a new Ren'Py game."
+
+	f "Once you add a story, pictures, and music, you can release it to the world!"
+
+	# This ends the game.
+
+	return
