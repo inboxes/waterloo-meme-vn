@@ -1,1 +1,10 @@
-
+# images
+    image waterlooair = "waterlooair.jpg" #aireal shot of waterloo#
+    image feridun = "feridun.png"
+    image gooseass = "gooseass.png" #goose on dudes ass#
+    image eyebrow = "eyebrow.png" #goose with eyebrows#
+    
+    # characters
+    define f = Character('Feridun Hamdullahpur',color="#9400d3")
+    define ga = Character('u/SseCn8jx',color="#18b5ef") #guy with a goose on his ass#
+    define eb = Character('Eyebrow Goose',color="#d0bd3b")
