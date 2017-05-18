@@ -58,17 +58,17 @@ stop sound fadeout 1.0
 return
 
 label start:
-    
+
     stop sound fadeout 1.0
     stop music fadeout 1.0
-    
+
     $ renpy.movie_cutscene("opening.webm")
-    
+
     $ points = 0
-    
+
     play music "scene.ogg"
     scene startscene at Pan((0, 0), (580,0), 15.0)
-    
+
     show text "{color=#ffc600}You look upon the apocalyptic future that is 2017.{/color}"
     with Pause (2)
     hide text with dissolve
@@ -78,7 +78,7 @@ label start:
     with Pause (2)
     hide text with dissolve
     with Pause (1)
-    
+
     show text "{color=#ffc600}You recall a time before the Great Meme War.{/color}"
     with Pause (2)
     hide text with dissolve
@@ -88,14 +88,14 @@ label start:
     with Pause (2)
     hide text with dissolve
     with Pause (1)
-    
+
     show text "{color=#ffc600}unaware of the sacrifices that were to be made.{/color}"
     with Pause (2)
     hide text with dissolve
     with Pause (1)
-    
+
     stop music fadeout 2.0
-    
+
     play music "begin.ogg"
     scene waterlooair with dissolve
     "You have just arrived at Waterloo."
@@ -103,99 +103,99 @@ label start:
     "With /r/uwaterloo's rising popularity, there has been an increased need to innovate more creamy memes."
     "Meme Engineering is only in its first year of infancy and you have been one of ten people selected to participate in this new program."
     "You are too poor to afford MKV air conditioning so you head towards the UWP dorms."
-    
+
     scene uwp with dissolve
-    
+
     "You see goose shit everywhere, dragging your luggage through the gravel road, trying to avoid much of the shit on the ground as possible."
-    
+
     show eyebrow with dissolve
-    
+
     "Along the way, you are stopped by a goose with eyebrows."
     "The goose raises its eyebrow."
-    
+
     play sound "honk.ogg"
-    
+
     eb "Honk"
     "You realize that this is the goose who has shat all over the road."
     "You decide if you want to fight this goose and claim vengeance for your luggage."
-    
+
     jump fightflight
-    
-    
+
+
 label fightflight:
-    
+
     scene uwp with dissolve
-    
+
     menu:
         "Fight":
             $ points += 1
             jump fightgoose
-            
+
         "Flight":
             jump flightgoose
 
 
 label fightgoose:
-    
+
     scene uwp with dissolve
     show eyebrow with dissolve
-    
+
     "You decide to fight the goose."
-    
+
     play sound "honk.ogg"
     scene waterlooair with dissolve
-    
+
     "You did not win against the goose."
     "You die knowing that these large water fowl are too dangerous to fight."
     "Sigh..."
     "Fine, I'll give you a freebie this time."
-    
+
     jump flightgoose
 
 
 label flightgoose:
-    
+
     scene uwp with dissolve
     show eyebrow with dissolve
-    
+
     "You are wise in avoiding the goose."
     "You head to your dorm and rest the night."
-    
+
     scene uwp with dissolve
-    
+
     "You are well rested."
     "You begin heading towards your first lecture."
-    
+
     scene rch with dissolve
-    
+
     "You walk into RCH and you realize that the lecture rooms are nothing like the ones you saw in the promotional video"
     "You are exhausted by the end of your first day but feeling confident in your courses because you had a 99 average from high school."
-    
+
     scene mc with dissolve
-    
+
     "One particular day after you leave your Linear Algebra tutorial, you feel thirsty and the desire to use the washroom."
     "Upon arriving at the washroom, you find a half-empty water bottle on the seat of the toilet."
-   
+
     show dasani with dissolve
-    
+
     "You move the water bottle and use the toilet."
     "You are rather thirsty after taking a dump."
-    
+
     menu:
-        
+
         "Drink":
             $ points += 1
             jump drink
-            
+
         "Bidet":
             jump bidet
-          
-          
+
+
 label drink:
-    
+
     scene mc with dissolve
     show dasani with dissolve
-    
+
     "???"
     "Why?"
     "Someone used that water bottle as a bidet you know."
@@ -204,107 +204,107 @@ label drink:
     "I know we have a shortage of female students.."
     "but damn you thirsty."
     "Narrator just broke the forth wall."
-    
+
     jump bidet
 
 
 label bidet:
-    
+
     scene mc with dissolve
     show dasani with dissolve
-    
+
     "You use the half empty water bottle as a bidet."
     "Your anus has never felt so refreshed."
     "Your anus is no longer hurting from all the ass-rape you have suffered since coming here."
-    
+
     jump coop
 
 
 label coop:
-    
+
     scene uwp with dissolve
-    
+
     "You head home to apply to co-op"
     "Cali or bust you say"
     "You apply to only the dankest Cali jobs at the pig 4, who wouldn't want you, you have that dank high school mark."
-    
+
     jump before_midterms
-    
-    
+
+
 label before_midterms:
-    
+
     scene waterlooair with dissolve
-    
+
     "~Time skip to before midterms~"
     "..."
     "You have still not been interviewed yet."
     "You put your resume on /r/uwaterloo but everyone just says its shit."
     "Feels bad man."
-    
+
     scene uwp with dissolve
-    
+
     "You are famished after staying up two nights to study for your midterms. You have been eating nothing but Soylent for the past week."
     "You require real food."
     "You head to the plaza in search of food."
-    
+
     jump phathatpaninos
 
 
 label phathatpaninos:
-    
+
     menu:
-        
+
         "Paninos":
             jump paninos
-            
+
         "Phat Hat":
             $ points += 1
             jump phathat
 
 
 label phathat:
-    
+
     scene phathat with dissolve
-    
+
     "You forgot that Phathat is actually a money laundering service."
     "There is no food here and you starve."
     "You head to Paninos instead."
-    
+
     jump paninos
 
 
 label paninos:
-    
+
     scene paninos with dissolve
-    
+
     "You eat the food before you with haste."
     "You are filled up and leave."
-    
+
     scene uwp with dissolve
-    
+
     "You ponder about life as you walk back towards your dorm."
     "'Why no gf?'"
-    
+
     play sound "honk.ogg"
-    
+
     "You hear a honk and turn around."
-    
+
     show goosegf with dissolve
-    
+
     "Even the goose from before has a gf."
-    
+
     hide goosegf with dissolve
     show feels with dissolve
-    
+
     "At least you aren't in 4B ECE."
-    
+
     jump after_midterms
 
 
 label after_midterms:
-    
+
     scene waterlooair with dissolve
-    
+
     "..."
     "Midterms are over"
     "You are failing three of your classes."
@@ -314,77 +314,77 @@ label after_midterms:
     "(¬‿¬)"
     "The pressure is on."
     "You receive an email one day asking you to meet a councillor about your grades."
-    
+
     scene feridunback with dissolve
     show feriduncart with dissolve
-    
+
     "You see Feridun himself in the flesh."
     "You must be dreaming."
-    
+
     f "Do not worry young one, if you fall, simply innovate harder."
     f "Finals are worth more than midterms."
     f "There is always continuous round."
     f "Work hard and make me proud."
-    
+
     "Feridun is love, Feridun is life."
-    
-    hide feridun 
+
+    hide feridun
     scene uwp with dissolve
-    
+
     "You go to resume critiques and go to extra help sessions."
     "You apply to every damn co-op you can."
     "Your meme game intensifies."
-    
+
     jump finals
-    
+
 
 label finals:
-    
+
     scene waterlooair with dissolve
-    
+
     "It is exam season"
     "You head to Toronto to catch up with your high-school friends because you sure haven't made any friends here"
-    
+
     scene ut with dissolve
-    
+
     "You can feel the normie atmosphere coming from everyone walking the campus"
-    
+
     stop music fadeout 1.0
     show utstudent with dissolve
-    
+
     "A UofT student walks up to you."
-    
+
     ut "UofT has better memes than Waterloo"
-    
+
     play sound "hype.ogg" fadein 2.0
 
     "(╯°□°)╯ ┻━┻"
     "You become triggered"
-    
+
     menu:
-        
+
         "Declare meme war":
                 jump memewar
-                
+
         "Settle for peace":
                 $ points += 1
                 jump peace
 
 
 label peace:
-    
+
     scene ut with dissolve
-    
+
     "Don't be a pussy, we will never lose to these normal fags when it comes to a meme war"
     "You have been conscripted into the meme war"
-    
+
     jump memewar
 
 
 label memewar:
-    
+
     scene ut with dissolve
-    
+
     "You have cast away all reason and have started making memes in the middle of exam season."
     "The war is fierce."
     "UofT lead by /u/fattittyfucker creates one Spongebob meme after another"
@@ -394,40 +394,40 @@ label memewar:
 
     show fuck with dissolve
     ga "'Fuck it, if this post receives 2000 upvotes I will tattoo a goose on my ass.'"
-    
+
     stop sound fadeout 1.0
-    
+
     $ renpy.movie_cutscene("staynight.webm")
-    
+
     scene ut with dissolve
     show utstudent at left with dissolve
     show ga at right with dissolve
     play sound "nani.ogg"
-    
+
     ut "NANI?BAKANA? How do you guys shitpost so hard in the middle of exam season?"
-    
+
     show feridun with dissolve
-    
+
     f "Fools."
     f "You think you can stop the disruptive power of /r/uwaterloo?"
     f "The last time something dropped this hot it ended WWII."
-    
+
     hide feridun
     hide ut student
     hide ga
-    
+
     scene uwp with dissolve
-    
+
     "You return to school knowing that you participated in such a historic event."
     "You study for exams."
     "Who are you kidding, you brows reddit all day."
     "You apply lube to your anus in expectation of the ass-rape to come."
     "( ͡° ͜ʖ ͡°)"
-    
-    
+
+
     scene waterlooair with dissolve
     play sound "shrek.ogg"
-    
+
     "You managed to pass your exams and boost your average up."
     "You found a dank co-op"
     "You have a GF now"
@@ -441,23 +441,23 @@ label memewar:
     "You have however discovered something within you."
     "You have cast away your earthly desires of wanting human companionship and the need for sleep"
     "Your level of autism and degeneracy greatly increases"
-    
+
     show memelord with dissolve
-    
+
     "You have evolved into a memelord!"
     "You head-off into the work term with renewed vigor"
     "You can't wait to graduate and escape from this shit-hole"
-    
+
     jump ending
-    
+
 label ending:
-    
+
     if points >= 4:
         "Wait what's this?"
         jump broad
     else:
         jump credits
-    
+
 label broad:
     scene broad with dissolve
     "Congrats"
@@ -471,10 +471,10 @@ label broad:
 
     # This ends the game.
 
-label credits: 
-    
+label credits:
+
     scene waterlooair with dissolve
-    
+
     "I'm the narrator and I like to chase geese around."
     "I wouldn't recommend it though, sometimes they chase back."
     "Thanks for playing the game"
