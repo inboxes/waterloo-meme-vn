@@ -1,5 +1,6 @@
 # waterloo-meme-vn
-Author: 321
+Author: Inboxes
+project site url: https://inboxes.github.io/waterloo-meme-vn/
 
 UPDATE: as of May 2017
 This alpha teaser version of the game is completed and uploaded to redit, the
