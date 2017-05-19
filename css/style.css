@@ -67,7 +67,7 @@ hr {
   font-size: 32px !important;
 }
 
-#work,#about, #team, 
+#work,#about, #team,
 #portfolio, #pricing, #contact {
    padding-top: 100px;
   padding-bottom: 100px;
@@ -215,12 +215,12 @@ navigation section
     margin-bottom: 0;
 }
 .custom-navbar .navbar-brand  {
-  color: #00c6d7;
+  color: #fee401;
   font-weight: 600;
   font-size: 24px;
 }
 .custom-navbar .navbar-brand .navbar-toggle {
-    background: #00c6d7;
+    background: #fee401;
     padding: 4px 6px;
     font-size: 16px;
     color: #fff;
@@ -692,7 +692,7 @@ footer p {
     #portfolio .col-md-4 {
       width: 33.333%;
     }
-  }    
+  }
 }
 
 /* ==========================================================================
