@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("The Great Meme War")
+define config.name = _("The Bamboozle")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
@@ -23,7 +23,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "Version 6.9"
+define config.version = "Dream Meme Team"
 
 
 ## Text that is placed on the game's about screen. To insert a blank line
@@ -74,7 +74,7 @@ define config.has_voice = True
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-define config.main_menu_music = "mainsong.ogg"
+define config.main_menu_music = ""
 
 
 ## Transitions #################################################################
