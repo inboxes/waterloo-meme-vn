@@ -220,10 +220,10 @@ navigation section
   font-weight: 600;
   font-size: 24px;
   text-shadow:
-  -1px -1px 0 #FFF,
-  1px -1px 0 #FFF,
-  -1px 1px 0 #FFF,
-  1px 1px 0 #FFF;
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
 }
 
 .custom-navbar .navbar-brand .navbar-toggle {
