@@ -74,6 +74,7 @@ hr {
 }
 
 
+
 /* ==========================================================================
 preloader section
 ========================================================================== */
@@ -218,7 +219,13 @@ navigation section
   color: #fee401;
   font-weight: 600;
   font-size: 24px;
+  text-shadow:
+  -1px -1px 0 #FFF,
+  1px -1px 0 #FFF,
+  -1px 1px 0 #FFF,
+  1px 1px 0 #FFF;
 }
+
 .custom-navbar .navbar-brand .navbar-toggle {
     background: #fee401;
     padding: 4px 6px;
