@@ -2,14 +2,7 @@
 errors listed below, and try again.
 
 
-<<<<<<< HEAD
-File "game/script.rpy", line 206: choice menuitem expects a non-empty block.
-    "Hyper Beam":
-                 ^
-=======
-File "game/script.rpy", line 277: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
-    jump before_midterms
-    ^
->>>>>>> script
+File "game/options.rpy", line 32: is not terminated with a newline. (Check strings and parenthesis.)
+    define gui.about = _("All content belongs to their respectful sources. Click to view original source in browser."
 
 Ren'Py Version: Ren'Py 6.99.12.4.2187

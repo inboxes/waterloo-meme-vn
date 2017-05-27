@@ -41,7 +41,9 @@ define gui.about = _("All content belongs to their respectful sources. Click to 
 "\n {a=https://www.youtube.com/watch?v=gNFxmMe1wVQ}Through the wormhole opening{/a}"
 "\n {a=https://www.reddit.com/r/uwaterloo/comments/5vt3xj/eyebrow_goose_spotted_at_u_waterloo/}Goose with Eyebrow{/a}"
 "\n {a=https://www.youtube.com/watch?v=Z6z9A9nyDpg}Delirious (Boneless) {/a}"
-"\n {a=http://www.oec2005.uwaterloo.ca/images/RCHAudience.jpg}RCH lecture hall {/a}")
+"\n {a=http://www.oec2005.uwaterloo.ca/images/RCHAudience.jpg}RCH lecture hall {/a}"
+"\n {a=https://www.youtube.com/watch?v=GXFSK0ogeg4}Carl Orff - O Fortuna ~ Carmina Burana {/a}"
+"\n {a=https://downloads.khinsider.com/game-soundtracks/album/pokemon-ruby-sapphire-music-super-complete}Battle! (Wild Pokémon) (Pokémon Ruby & Sapphire).mp3 {/a}")
 
 
 ## A short name for the game used for executables and directories in the built

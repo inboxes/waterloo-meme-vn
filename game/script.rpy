@@ -24,12 +24,15 @@ image eyebrow_battle = im.FactorScale("eyebrow.png", 0.4)
 image player_battle = im.FactorScale(im.Flip("Angra.png", horizontal=True), 1.2)
 image lecture = "lecture.jpg"
 image battleground = "battleground.jpg"
+image playerfull = "playerhealthfull.png"
+image playerempty = "playerhealthempty.png"
+image goosehealth = "goosehealth.png"
 # characters    
 define f = Character('Feridun Hamdullahpur',color="#9400d3")
 define ga = Character('/u/SseCn8jx',color="#18b5ef")
 define eb = Character('Eyebrow Goose',color="#d0bd3b")
 define ut = Character('UofT Student',color="#002f65")
-define gs = Character('The Saviour',color="#fc1409")
+define gs = Character('Sergeant Goose',color="#fc1409")
 #use m for the username
 
 # opening sequence
@@ -43,7 +46,7 @@ with Pause(2)
 hide text with dissolve
 with Pause(1)
 
-show text "{color=#ffffff}{size=+30}The Dream Meme Team presents...{/size}{/color}" with dissolve
+show text "{color=#ffffff}{size=+30}Type-Meme presents...{/size}{/color}" with dissolve
 with Pause(2)
 hide text with dissolve
 with Pause(1)
@@ -61,16 +64,25 @@ return
 #username input
 label start:
     scene waterlooair with dissolve
-    "Life at university means a new start."
-    "And..."
-    "You seem to have forgot your name."
+    show feriduncart with dissolve
+    f "Why hello!"
+    f "Welcome to the University of Waterloo!"
+    f "Innovation starts here."
+    f "What is INNOVATION you ask?"
+    f "INNOVATION is...{w} disruptive."
+    f "I'm sure you will learn of it soon enough once you have spent enough time here."
+    f "Now what was your name again?"
+    
+    "Strange...{w} You can't seem to remember your name."
     
     $ player_name = renpy.input("What is your name?")
 
     $ player_name = player_name.strip()
 
     if player_name == "":
-        $ player_name="Mr.Goose"
+        $ player_name="Newbie"
+        
+    hide feriduncart with dissolve
         
     show thesaviour from bottom with dissolve
     gs "Welcome to Waterloo %(player_name)s!"
@@ -87,7 +99,7 @@ label start:
 label introshot:
     #PROLOGUE
     scene black with dissolve
-    show text "{color=#ffffff}{size=+30}Prologue\nWaking Memories{/size}{/color}" with Pause(2)
+    show text "{color=#ffffff}{size=+30}Prologue\nWaking Memories{/size}{/color}" with Pause(1)
     hide text with dissolve
     scene black with dissolve
     play music "scene.ogg"
@@ -126,7 +138,7 @@ label startgame:
 
     #CHAPTER 1
     scene black with dissolve
-    show text "{color=#ffffff}{size=+30}Chapter 1\nA Frightening Sight{/size}{/color}" with Pause(2)
+    show text "{color=#ffffff}{size=+30}Chapter 1\nA Frightening Sight{/size}{/color}" with Pause(1)
     hide text with dissolve
     scene black with dissolve
 
@@ -165,8 +177,10 @@ label fightflight:
     scene black with pixellate
     scene black with squares
     scene battleground with dissolve
-    show eyebrow_battle at Position(xpos = 0.73, xanchor=0.5, ypos=0.45, yanchor=0.5) behind black
-    show player_battle at Position(xpos = 0.25, xanchor=0.5, ypos=0.6, yanchor=0.5)behind black
+    show eyebrow_battle at Position(xpos = 0.73, xanchor=0.5, ypos=0.45, yanchor=0.5)with moveinright
+    show goosehealth with moveinright
+    show player_battle at Position(xpos = 0.25, xanchor=0.5, ypos=0.6, yanchor=0.5)with moveinleft
+    show playerfull with moveinleft
     
     "A wild Goose has appeared!"
     $ pkmn_easter = 0
@@ -180,13 +194,14 @@ label fightflight:
             #unlocks special scene later
             jump battle
         "Bag":
-            "Stop staring at your phone you piece of CHE102!"
+            "You find only pencils and pens"
             "You're not in Kanto anymore. The wild Goose isn't a digital monster."
             jump battle
         "Run":
+            "You run away with your hands covering your head."
             "Got away safely"
             hide eyebrow
-            hide player_battle
+            hide player_battle with moveoutleft
             jump flightgoose
     
 label fightgoose:
@@ -197,28 +212,50 @@ label fightgoose:
     menu moves:
         "Tackle":
             "You charge at the goose like a maniac."
+            "You miss."
+            "Mr.Goose used honk."
+            play sound "honk.ogg"
+            with hpunch
+            "It's super effective."
+            hide player_battle with moveoutbottom
         "Roll Pencil":
             "You roll a pencil to determine more choices."
             "This is not a multiple choice exam."
+            "Mr.Goose used honk."
+            play sound "honk.ogg"
+            with hpunch
+            "It's super effective."
+            hide player_battle with moveoutbottom
         "Screech":
             #animate
             "You try to screech to lower the goose's defences, but it failed"
             #animate
-            "The wild Goose used laugh. \nIt was super effective! \nYou realize how pathetic you sound and start to cry."
+            "The wild Goose used laugh."
+            with hpunch
+            play sound "honk.ogg"
+            "It was super effective!"
+            "You realize how pathetic you sound and start to cry."
+            hide player_battle with moveoutbottom
         "Hyper Beam":
             "Your mouth is agap as you charge up.{w} You let out a burp."
             "You realize humans can't actually use hyper beam.{w}Obviously."
+            "Mr.Goose used honk."
+            play sound "honk.ogg"
+            with hpunch
+            "It's super effective."
+            hide player_battle with moveoutbottom
             #animate goose attacking
     
+    show playerempty with dissolve
+    "You have fainted"
     stop music fadeout 1.0
-    play sound "honk.ogg"
     scene waterlooair with dissolve
     
     "You did not win against the goose."
     "You die knowing that these large water fowl are too dangerous to fight."
     "Rip"
     
-    jump startgame
+    jump fightflight
 
 
 
@@ -310,7 +347,7 @@ label coop:
     
     #CHAPTER 2
     scene black with dissolve
-    show text "{color=#ffffff}{size=+30}Chapter 2\nWaterloo (Doesn't) Work{/size}{/color}" with Pause(2)
+    show text "{color=#ffffff}{size=+30}Chapter 2\nWaterloo (Doesn't) Work{/size}{/color}" with Pause(1)
     hide text with dissolve
     scene black with dissolve
 
@@ -325,7 +362,7 @@ label coop:
 label before_midterms:
     #Chapter 3
     scene black with dissolve
-    show text "{color=#ffffff}{size=+30}Chapter 3\nCHE 102{/size}{/color}" with Pause(2)
+    show text "{color=#ffffff}{size=+30}Chapter 3\nCHE 102{/size}{/color}" with Pause(1)
     hide text with dissolve
     scene black with dissolve
     
@@ -391,7 +428,7 @@ label paninos:
 label after_midterms:
     #CHAPTER 4
     scene black with dissolve
-    show text "{color=#ffffff}{size=+30}Chapter 4\nEarly Aftermath{/size}{/color}" with Pause(2)
+    show text "{color=#ffffff}{size=+30}Chapter 4\nEarly Aftermath{/size}{/color}" with Pause(1)
     hide text with dissolve
     scene black with dissolve
     
@@ -432,116 +469,42 @@ label after_midterms:
     
 
 label finals:
+    "You thought you still had two weeks but lmao, finals came faster than yourself."
+    show thesaviour with dissolve
+    gs "Don't worry. A person only needs a maximum of 48 hours to learn a course anyways.{w} It is a fact.{w} Proven by science."
+    "You did the math. You have 3 hours of lecturs a week. A term is 12 weeks. That's only 36 hours in total. Mr.Goose is right again. You thank him for his guidance."
+    "You went back to your room and opened up your laptop.{w} Two familiar icons appeared in front of your eyes."
     
+    menu: 
+        "Play League.":
+            "What? You can't choose studying? {w} Of course not. If you could choose that you would have done it 12 weeks ago."
+            "You play one game and get recked. You rage quit and begin studying."
+        "Play Overwatch.":
+            "What? You can't choose studying? {w} Of course not. If you could choose that you would have done it 12 weeks ago."
+            "You misses all your shots. You rage quit and begin studying."
     
-    scene waterlooair with dissolve
-    
-    "It is exam season"
-    "You head to Toronto to catch up with your high-school friends because you haven't made any friends here"
-    
-    scene ut with dissolve
-    
-    "You can feel the normie atmosphere coming from everyone walking the campus."
-    
-    stop music fadeout 1.0
-    show utstudent with dissolve
-    
-    "A UofT student walks up to you."
-    
-    ut "UofT has better memes than Waterloo"
-    
-    play sound "hype.ogg" fadein 2.0
-
-    "(╯°□°)╯ ┻━┻"
-    "You become triggered"
-    
-    menu:
-        
-        "Declare meme war":
-                jump memewar
-                
-        "Settle for peace":
-                $ points += 1
-                jump peace
-
-
-label peace:
-    
-    scene ut with dissolve
-    
-    "Don't be a pussy, we will never lose to these normal fags when it comes to a meme war"
-    "You have been conscripted into the meme war"
-    
-    jump memewar
-
-
-label memewar:
-    
-    scene ut with dissolve
-    
-    "You have cast away all reason and have started making memes in the middle of exam season."
-    "The war is fierce."
-    "UofT lead by /u/fattittyfucker creates one Spongebob meme after another"
-    "You see the food truck meme rising in popularity."
-    "When all is looking bleak, one man appears to end it all."
-    "Suddenly /u/SseCn8jx appears."
-
-    show fuck with dissolve
-    ga "'Fuck it, if this post receives 2000 upvotes I will tattoo a goose on my ass.'"
-    
-    stop sound fadeout 1.0
-    
-    $ renpy.movie_cutscene("staynight.webm")
-    
-    scene ut with dissolve
-    show utstudent at left with dissolve
-    show ga at right with dissolve
-    play sound "nani.ogg"
-    
-    ut "NANI?BAKANA? How do you guys shitpost so hard in the middle of exam season?"
-    
-    show feridun with dissolve
-    
-    f "Fools."
-    f "You think you can stop the disruptive power of /r/uwaterloo?"
-    f "The last time something dropped this hot it ended WWII."
-    
-    hide feridun
-    hide ut student
-    hide ga
-    
-    scene uwp with dissolve
-    
-    "You return to school knowing that you participated in such a historic event."
-    "You study for exams."
-    "Who are you kidding, you brows reddit all day."
-    "You apply lube to your anus in expectation of the ass-rape to come."
-    "( ͡° ͜ʖ ͡°)"
-    
-    
-    scene waterlooair with dissolve
-    play sound "shrek.ogg"
-    
-    "You managed to pass your exams and boost your average up."
-    "You found a dank co-op"
-    "You have a GF now"
-    "Life is great"
+    "You begin studying."
     "..."
-    "You really thought that could happen at Waterloo?"
-    "(☞*∀*)☞"
-    "You barely make it past first year"
-    "You have a co-op painting fences."
-    "Still single as ever"
-    "You have however discovered something within you."
-    "You have cast away your earthly desires of wanting human companionship and the need for sleep"
-    "Your level of autism and degeneracy greatly increases"
+    "..."
+    "..."
+    "2 hours passed. {w} It is the 50th time you read over the first paragraph in your notes." 
+    "You still don't get it."
+    show thesaviour with dissolve
+    gs "Search it on YouTube."
+    "You search for a tutuorial on Youtube."
+    ".......{w}......"
+    "7 hours passed."
+    "During this time, you have mastered 3 ways of communicating with Zebras, 5 secret recipies for the perfect Congo Cuisine, and 2 ways of making your personal spacecraft."
+    "You also finally understands the first paragraph in your notes."
+    "It has already darkened out side."
+    menu:
+        "Keep studying.":
+            "You keep studying."
+            "..."
+            "Two days passed."
+            "You are too exhausted.{w} The world darkened before your eyes."
     
-    show memelord with dissolve
-    
-    "You have evolved into a memelord!"
-    "You head-off into the work term with renewed vigor"
-    "You can't wait to graduate and escape from this shit-hole"
-    
+    ## need new ending
     jump ending
     
 label ending:
@@ -551,17 +514,6 @@ label ending:
         jump broad
     else:
         jump credits
-    
-label broad:
-    scene broad with dissolve
-    "Congrats"
-    "You actually managed to fuck up so hard that you unlocked this easter egg"
-    "You had a 1/16 chance to get this easter egg based on your choices."
-    "That's it"
-    "Just some internet points"
-    "Why do you do this to yourself?"
-    "Broad is love Broad is life"
-    jump credits
 
     # This ends the game.
 
