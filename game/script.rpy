@@ -126,7 +126,8 @@ label startgame:
     
     scene uwp with dissolve
     ##play sound footstepgravel
-    m "There is goose crap everywhere, dragging your luggage through the gravel road, trying to avoid much of the crap on the ground as possible."
+    m "There is goose crap everywhere!"
+    "You drag your luggage through the gravel road, trying to avoid much of the crap on the ground as possible."
     
     show eyebrow with dissolve
     
@@ -184,6 +185,9 @@ label flightgoose:
     m "Man I'm tired."
     "You are tired despite doing literally nothing other than deciding whether or not you want to fight a goose."
     "You head to your dorm and rest the night."
+    jump firstlecture
+
+label firstlecture:
     
     scene uwp with dissolve
     
@@ -198,17 +202,21 @@ label flightgoose:
     "You descened down the stairs of RCH"
     ##play sound footstepstairs
     ##scene lecture with dissolve
-    
+    m "Wow!{w} Lectures are going to be so fun!"
+    "Little did you know that you would skip most of your lectures."
     
     scene mc with dissolve
     
-    "One particular day after you leave your Linear Algebra tutorial, you feel thirsty and the desire to use the washroom."
-    "Upon arriving at the washroom, you find a half-empty water bottle on the seat of the toilet."
+    "One particular day after you leave your Linear Algebra tutorial..."
+    m "Let me use the washroom real quick."
    
     show dasani with dissolve
-    
-    "You move the water bottle and use the toilet."
-    "You are rather thirsty."
+    m "Wait,{w} why is there a half-empty water bottle here?"
+    m "Guess I'll just move it"
+    ##play sound flush
+    m "Hmm...{w} I am rather thirsty..."
+    m "I just spent my entire meal plan at Timmy's the other day..."
+    m "Should I risk the drink?"
     
     menu:
         
@@ -216,28 +224,29 @@ label flightgoose:
             $ points += 1
             jump drink
             
-        "Bidet":
-            jump bidet
+        "Stay thirsty":
+            jump thirst
           
           
 label drink:
     
     scene mc with dissolve
-    show dasani with dissolve
+    show dasani at right with dissolve
+    show thesaviour at left with dissolve
     
-    "???"
-    "Why?"
-    "Someone used that water bottle as a bidet you know."
-    "Didn't anyone teach you to not drink a half-empty water bottle that you found in a bathroom stall?"
-    "Go use it as a bidet instead."
-    "I know we have a shortage of female students.."
-    "but damn you thirsty."
-    "Narrator just broke the forth wall."
+    gs"???"
+    gs"Why?"
+    gs"Didn't anyone teach you to not drink a half-empty water bottle that you found in a bathroom stall?"
+    gs"Why are you so thirsty?{w} In both sense of the word."
     
-    jump bidet
+    scene waterlooair with dissolve
+    "You die of E.Coli that you contracted from the water bottle."
+    "Don't drink random half-empty water bottles that you find in bathroom stalls in the future."
+    
+    jump startgame
 
 
-label bidet:
+label thirst:
     
     scene mc with dissolve
     show dasani with dissolve
