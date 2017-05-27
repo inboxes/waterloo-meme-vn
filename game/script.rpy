@@ -326,40 +326,31 @@ label before_midterms:
     scene waterlooair with dissolve
     
     "~Time skip to before midterms~"
-    "..."
-    "You have still not been interviewed yet."
+    show thesaviour with dissolve
+    gs "..."
+    gs "You have still not been interviewed yet."
     m "Feels bad man."
     
     scene uwp with dissolve
     
     "You are famished after staying up two nights to study for your midterms. You have been eating nothing but Soylent for the past week."
-    "You require real food."
+    m "Food..."
+    m "I miss that high calorie high sodium taste."
     "You head to the plaza in search of food."
-    
-    jump phathatpaninos
-
-
-label phathatpaninos:
     
     menu:
         
         "Paninos":
             jump paninos
             
-        "Phat Hat":
-            $ points += 1
-            jump phathat
-
-
-label phathat:
-    
-    scene phathat with dissolve
-    
-    "You forgot that Phathat is actually a money laundering service."
-    "There is no food here and you starve."
-    "You head to Paninos instead."
-    
-    jump paninos
+        "Paninos":
+            jump paninos
+        
+        "Paninos":
+            jump paninos
+        
+        "Paninos or bust":
+            jump paninos
 
 
 label paninos:
