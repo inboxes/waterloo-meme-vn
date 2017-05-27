@@ -3,6 +3,8 @@ image waterlooair = "waterlooair.jpg"
 image feridun = "feridun.png"
 image ga = "gooseass.png"
 image eyebrow = "eyebrow.png"
+image eyebrow_battle = im.FactorScale("eyebrow.png", 0.4)
+image player_battle = im.FactorScale(im.Flip("Angra.png", horizontal=True), 1.2)
 image uwp = "uwp.png"
 image rch = "rch.jpg"
 image phathat = "phathat.jpg"
@@ -81,6 +83,11 @@ label start:
     
 #intro pan
 label introshot:
+    #PROLOGUE
+    scene black with dissolve
+    show text "Prologue\nWaking Memories" with Pause
+    scene black with dissolve
+    
     play music "scene.ogg"
     scene startscene at Pan((0, 0), (580,0), 15.0)
     
@@ -114,8 +121,13 @@ label introshot:
     
 #Start of the Game
 label startgame:
-
     
+    #CHAPTER 1
+    scene black with dissolve
+    show text "Chapter 1\nA Frightening Sight" with Pause
+    scene black with dissolve
+
+
     play music "begin.ogg"
     scene waterlooair with dissolve
     "You have just arrived at Waterloo."
@@ -146,25 +158,56 @@ label startgame:
     
 label fightflight:
     
+    play music "Battle! (Wild Pokémon) (Pokémon Ruby & Sapphire).mp3"
+    scene black with pixellate
+    scene black with squares
+    #img battleground replace uwp
     scene uwp with dissolve
+    show eyebrow_battle at Position(xpos = 0.8, xanchor=0.5, ypos=0.2, yanchor=0.5) behind black
+    show player_battle at Position(xpos = 0.2, xanchor=0.5, ypos=0.6, yanchor=0.5)behind black
     
-    menu:
+    "A wild Goose has appeared!"
+    $ pkmn_easter = 0
+    
+    menu battle:
         "Fight":
             $ points += 1
             jump fightgoose
-            
-        "Flight":
+        "P*km*n":
+            "What's a P*km*n? Never heard of them. Maybe you should pick a real choice."
+            $ pkmn_easter += 1
+            #unlocks special scene later
+            jump battle
+        "Bag":
+            "Stop staring at your phone you piece of CHE102!"
+            "You're not in Kanto anymore. The wild Goose isn't a digital monster."
+            jump battle
+        "Run":
+            "Got away safely"
+            hide eyebrow
+            hide player_battle
             jump flightgoose
-
-
-label fightgoose:
     
-    scene uwp with dissolve
-    show eyebrow with dissolve
+label fightgoose:
     
     "You flap your arms in the air and chase after the goose."
     m "1v1 me REEEEEEEEEEEEE!"
     
+    menu moves:
+        "Tackle":
+            "Placeholder, pls write something"
+        "Roll Pencil":
+            "Placeholder"
+        "Screech":
+            #animate
+            "You try to screech to lower the goose's defences, but it failed"
+            #animate
+            "The wild Goose used laugh. /nIt was super effective! /nYou realize how pathetic you sound and start to cry."
+        "Hyper Beam":
+            "placeholder"
+            #fuck
+    
+    stop music fadeout 1.0
     play sound "honk.ogg"
     scene waterlooair with dissolve
     
@@ -174,11 +217,11 @@ label fightgoose:
     
     jump startgame
 
-
 label flightgoose:
     
     scene uwp with dissolve
     show eyebrow with dissolve
+    stop music fadeout 1.0
     
     "You are wise in avoiding the goose."
     m "Man I'm tired."
@@ -250,6 +293,10 @@ label bidet:
 
 
 label coop:
+    #CHAPTER 2
+    scene black with dissolve
+    show text "Chapter 2\nWaterloo (Doesn't) Work" with Pause
+    scene black with dissolve
     
     scene uwp with dissolve
     
@@ -331,6 +378,10 @@ label paninos:
 
 
 label after_midterms:
+    #CHAPTER 4
+    scene black with dissolve
+    show text "Chapter 4\nEarly Aftermath" with Pause
+    scene black with dissolve
     
     scene waterlooair with dissolve
     

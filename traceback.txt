@@ -1,20 +1,20 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 107, in script
-    return
-Exception: Could not find return label (u'C:\\Users\\Stephen\\Desktop\\waterloo-meme-vn/game/script.rpy', 1495845953, 146).
+  File "game/script.rpy", line 194, in script
+    m "1v1 me REEEEEEEEEEEEE!"
+Exception: Sayer 'm' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 107, in script
-    return
-  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\ast.py", line 1376, in execute
-    next_node(renpy.game.context().lookup_return(pop=True))
-  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\execution.py", line 552, in lookup_return
-    raise Exception("Could not find return label {!r}.".format(self.return_stack[-1]))
-Exception: Could not find return label (u'C:\\Users\\Stephen\\Desktop\\waterloo-meme-vn/game/script.rpy', 1495845953, 146).
+  File "game/script.rpy", line 194, in script
+    m "1v1 me REEEEEEEEEEEEE!"
+  File "D:\Program Files\Ren'py 6.99.12.4\renpy\ast.py", line 593, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "D:\Program Files\Ren'py 6.99.12.4\renpy\ast.py", line 509, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who.encode("utf-8"))
+Exception: Sayer 'm' is not defined.
 
 Windows-8-6.2.9200
 Ren'Py 6.99.12.4.2187
