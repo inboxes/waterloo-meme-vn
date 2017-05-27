@@ -2,8 +2,12 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 400: if statement expects a non-empty block.
-    if points >= 4:
-                   ^
+File "game/script.rpy", line 99: end of line expected.
+    jump start game
+               ^
+
+File "game/script.rpy", line 101: expected ':' not found.
+    label start game:
+                ^
 
 Ren'Py Version: Ren'Py 6.99.12.4.2187
