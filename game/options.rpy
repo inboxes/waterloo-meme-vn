@@ -29,10 +29,8 @@ define config.version = "Dream Meme Team"
 ## Text that is placed on the game's about screen. To insert a blank line
 ## between paragraphs, write \n\n.
 
-define gui.about = _("All content belongs to their respectful sources. Click to view original source in browser. \n {a=https://i.ytimg.com/vi/i5MNxjOGKcw/maxresdefault.jpg}Feridun Hamdullaphur{/a}"
-
-"\n {a=https://www.youtube.com/watch?v=cEkJxX3o44k}UW vs UT by Laggy{/a}"
-"\n {a=https://www.youtube.com/watch?v=5cs7vQy0rZA}Opening by Laggy{/a}"
+define gui.about = _("All content belongs to their respectful sources. Click to view original source in browser."
+"\n {a=https://i.ytimg.com/vi/i5MNxjOGKcw/maxresdefault.jpg}Feridun Hamdullaphur{/a}"
 "\n {a=http://i.imgur.com/RHLsVw8.jpg}Paninos{/a}"
 "\n {a=http://www.jafar.ca/phat%20hat-7.JPG}Phathat{/a}"
 "\n {a=https://www.reddit.com/r/uwaterloo/comments/5yb2uf/eyebrow_goose_found_a_gf/}GooseGF{/a}"
@@ -43,7 +41,8 @@ define gui.about = _("All content belongs to their respectful sources. Click to 
 "\n {a=https://www.youtube.com/watch?v=YBuAAPNrtSE}Main Menu Song{/a}"
 "\n {a=https://www.youtube.com/watch?v=gNFxmMe1wVQ}Through the wormhole opening{/a}"
 "\n {a=http://i.imgur.com/CPsq8YY.jpg/}Goose Sketch{/a}"
-"\n {a=https://www.reddit.com/r/uwaterloo/comments/5vt3xj/eyebrow_goose_spotted_at_u_waterloo/}Goose with Eyebrow{/a}")
+"\n {a=https://www.reddit.com/r/uwaterloo/comments/5vt3xj/eyebrow_goose_spotted_at_u_waterloo/}Goose with Eyebrow{/a}"
+"\n {a=https://www.youtube.com/watch?v=Z6z9A9nyDpg} Delirious (Boneless) {/a}")
 
 
 ## A short name for the game used for executables and directories in the built
