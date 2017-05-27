@@ -1,34 +1,20 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After initialization, but before game start.
-  File "renpy/common/00voice.rpy", line 360, in voice_interact
-    if _menu:
-NameError: global name '_menu' is not defined
+While running game code:
+  File "renpy/common/00start.rpy", line 107, in script
+    return
+Exception: Could not find return label (u'C:\\Users\\Stephen\\Desktop\\waterloo-meme-vn/game/script.rpy', 1495845953, 146).
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\bootstrap.py", line 295, in bootstrap
-    renpy.main.main()
-  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\main.py", line 430, in main
-    renpy.game.script.report_duplicate_labels()
-  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\script.py", line 890, in report_duplicate_labels
-    if renpy.parser.report_parse_errors():
-  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\parser.py", line 2543, in report_parse_errors
-    renpy.display.error.report_parse_errors(full_text, error_fn)
-  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\display\error.py", line 179, in report_parse_errors
-    error_fn=error_fn,
-  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\game.py", line 280, in invoke_in_new_context
-    return callable(*args, **kwargs)
-  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\display\error.py", line 43, in call_exception_screen
-    return renpy.ui.interact(mouse="screen", type="screen", suppress_overlay=True, suppress_underlay=True)
-  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\ui.py", line 285, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\display\core.py", line 2519, in interact
-    i()
-  File "renpy/common/00voice.rpy", line 360, in voice_interact
-    if _menu:
-NameError: global name '_menu' is not defined
+  File "renpy/common/00start.rpy", line 107, in script
+    return
+  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\ast.py", line 1376, in execute
+    next_node(renpy.game.context().lookup_return(pop=True))
+  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\execution.py", line 552, in lookup_return
+    raise Exception("Could not find return label {!r}.".format(self.return_stack[-1]))
+Exception: Could not find return label (u'C:\\Users\\Stephen\\Desktop\\waterloo-meme-vn/game/script.rpy', 1495845953, 146).
 
 Windows-8-6.2.9200
 Ren'Py 6.99.12.4.2187
