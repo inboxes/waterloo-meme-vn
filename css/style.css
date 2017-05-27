@@ -74,6 +74,7 @@ hr {
 }
 
 
+
 /* ==========================================================================
 preloader section
 ========================================================================== */
@@ -218,7 +219,13 @@ navigation section
   color: #fee401;
   font-weight: 600;
   font-size: 24px;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
 }
+
 .custom-navbar .navbar-brand .navbar-toggle {
     background: #fee401;
     padding: 4px 6px;
@@ -267,6 +274,15 @@ navigation section
 /* ==========================================================================
 home section
 ========================================================================== */
+#banner {
+  height: 100px;
+  width: 998px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  margin-left: -499px;
+}
+
 #home {
   background-size: cover;
   background-position: center;
