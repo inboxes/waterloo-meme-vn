@@ -19,12 +19,13 @@ image fuck = "fuck.png"
 image feriduncart = "feriduncart.png"
 image feridunback = "feridunbackground.jpg"
 image pan = "startscene.jpg"
+image thesaviour = "thesaviour.png"
 # characters    
 define f = Character('Feridun Hamdullahpur',color="#9400d3")
 define ga = Character('/u/SseCn8jx',color="#18b5ef")
 define eb = Character('Eyebrow Goose',color="#d0bd3b")
 define ut = Character('UofT Student',color="#002f65")
-define gs = Character('Soldier Goose',color="#fc1409")
+define gs = Character('The Saviour',color="#fc1409")
 #use m for the username
 
 # opening sequence
@@ -49,21 +50,28 @@ hide text with dissolve
 with Pause(1)
 
 $ renpy.movie_cutscene('intro.webm')
+
 return
 
 
 #username input
 label start:
-    "I don't even know my own name."
-
+    scene waterlooair with dissolve
+    "Life at university means a new start."
+    "And..."
+    "You seem to have forgot your name."
+    
     $ player_name = renpy.input("What is your name?")
 
     $ player_name = player_name.strip()
 
     if player_name == "":
         $ player_name="Mr.Goose"
-  
-    f "Welcome to Waterloo %(player_name)s!"
+        
+    show thesaviour from bottom with dissolve
+    gs "Welcome to Waterloo %(player_name)s!"
+    gs "You will soon learn to Thank Mr.Goose."
+    gs "I will be your guide."
     
     $ points = 0
     
@@ -117,8 +125,8 @@ label startgame:
     "You are too poor to afford MKV air conditioning so you head towards the UWP dorms."
     
     scene uwp with dissolve
-    
-    m "You see goose crap everywhere, dragging your luggage through the gravel road, trying to avoid much of the crap on the ground as possible."
+    ##play sound footstepgravel
+    m "There is goose crap everywhere, dragging your luggage through the gravel road, trying to avoid much of the crap on the ground as possible."
     
     show eyebrow with dissolve
     
@@ -128,7 +136,9 @@ label startgame:
     play sound "honk.ogg"
     
     eb "Honk"
-    "You realize that this is the goose who has decimated the road."
+    m "Wait..."
+    m "Is this the goose that has shat all over the road?"
+    m "My luggage will not die in vain."
     "You decide if you want to fight this goose and claim vengeance for your luggage."
     
     jump fightflight
@@ -152,17 +162,17 @@ label fightgoose:
     scene uwp with dissolve
     show eyebrow with dissolve
     
-    "You decide to fight the goose."
+    "You flap your arms in the air and chase after the goose."
+    m "1v1 me REEEEEEEEEEEEE!"
     
     play sound "honk.ogg"
     scene waterlooair with dissolve
     
     "You did not win against the goose."
     "You die knowing that these large water fowl are too dangerous to fight."
-    "Sigh..."
-    "Fine, I'll give you a freebie this time."
+    "Rip"
     
-    jump flightgoose
+    jump startgame
 
 
 label flightgoose:
@@ -171,6 +181,8 @@ label flightgoose:
     show eyebrow with dissolve
     
     "You are wise in avoiding the goose."
+    m "Man I'm tired."
+    "You are tired despite doing literally nothing other than deciding whether or not you want to fight a goose."
     "You head to your dorm and rest the night."
     
     scene uwp with dissolve
@@ -180,9 +192,13 @@ label flightgoose:
     
     scene rch with dissolve
     
-    "You walk into RCH and you realize that you are literally in a bombshelter."
-    "You must wait until +1 years of exp before you can actually go the the Bombshelter."
-    "You are exhausted by the end of your first day but feeling confident in your courses because you had a 99 average from high school."
+    "The rusty figure of RCH looms over you."
+    m "Wait,{w} this is literally a bombshelter."
+    "You must wait until >=19 years of exp before you can actually go the the Bombshelter."
+    "You descened down the stairs of RCH"
+    ##play sound footstepstairs
+    ##scene lecture with dissolve
+    
     
     scene mc with dissolve
     
@@ -192,7 +208,7 @@ label flightgoose:
     show dasani with dissolve
     
     "You move the water bottle and use the toilet."
-    "You are rather thirsty after taking a dump."
+    "You are rather thirsty."
     
     menu:
         
