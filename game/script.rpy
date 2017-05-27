@@ -3,8 +3,6 @@ image waterlooair = "waterlooair.jpg"
 image feridun = "feridun.png"
 image ga = "gooseass.png"
 image eyebrow = "eyebrow.png"
-image eyebrow_battle = im.FactorScale("eyebrow.png", 0.4)
-image player_battle = im.FactorScale(im.Flip("Angra.png", horizontal=True), 1.2)
 image uwp = "uwp.png"
 image rch = "rch.jpg"
 image phathat = "phathat.jpg"
@@ -83,11 +81,6 @@ label start:
     
 #intro pan
 label introshot:
-    #PROLOGUE
-    scene black with dissolve
-    show text "Prologue\nWaking Memories" with Pause
-    scene black with dissolve
-    
     play music "scene.ogg"
     scene startscene at Pan((0, 0), (580,0), 15.0)
     
@@ -121,13 +114,8 @@ label introshot:
     
 #Start of the Game
 label startgame:
+
     
-    #CHAPTER 1
-    scene black with dissolve
-    show text "Chapter 1\nA Frightening Sight" with Pause
-    scene black with dissolve
-
-
     play music "begin.ogg"
     scene waterlooair with dissolve
     "You have just arrived at Waterloo."
@@ -138,7 +126,8 @@ label startgame:
     
     scene uwp with dissolve
     ##play sound footstepgravel
-    m "There is goose crap everywhere, dragging your luggage through the gravel road, trying to avoid much of the crap on the ground as possible."
+    m "There is goose crap everywhere!"
+    "You drag your luggage through the gravel road, trying to avoid much of the crap on the ground as possible."
     
     show eyebrow with dissolve
     
@@ -158,56 +147,25 @@ label startgame:
     
 label fightflight:
     
-    play music "Battle! (Wild Pokémon) (Pokémon Ruby & Sapphire).mp3"
-    scene black with pixellate
-    scene black with squares
-    #img battleground replace uwp
     scene uwp with dissolve
-    show eyebrow_battle at Position(xpos = 0.8, xanchor=0.5, ypos=0.2, yanchor=0.5) behind black
-    show player_battle at Position(xpos = 0.2, xanchor=0.5, ypos=0.6, yanchor=0.5)behind black
     
-    "A wild Goose has appeared!"
-    $ pkmn_easter = 0
-    
-    menu battle:
+    menu:
         "Fight":
             $ points += 1
             jump fightgoose
-        "P*km*n":
-            "What's a P*km*n? Never heard of them. Maybe you should pick a real choice."
-            $ pkmn_easter += 1
-            #unlocks special scene later
-            jump battle
-        "Bag":
-            "Stop staring at your phone you piece of CHE102!"
-            "You're not in Kanto anymore. The wild Goose isn't a digital monster."
-            jump battle
-        "Run":
-            "Got away safely"
-            hide eyebrow
-            hide player_battle
+            
+        "Flight":
             jump flightgoose
-    
+
+
 label fightgoose:
+    
+    scene uwp with dissolve
+    show eyebrow with dissolve
     
     "You flap your arms in the air and chase after the goose."
     m "1v1 me REEEEEEEEEEEEE!"
     
-    menu moves:
-        "Tackle":
-            "Placeholder, pls write something"
-        "Roll Pencil":
-            "Placeholder"
-        "Screech":
-            #animate
-            "You try to screech to lower the goose's defences, but it failed"
-            #animate
-            "The wild Goose used laugh. /nIt was super effective! /nYou realize how pathetic you sound and start to cry."
-        "Hyper Beam":
-            "placeholder"
-            #fuck
-    
-    stop music fadeout 1.0
     play sound "honk.ogg"
     scene waterlooair with dissolve
     
@@ -217,16 +175,19 @@ label fightgoose:
     
     jump startgame
 
+
 label flightgoose:
     
     scene uwp with dissolve
     show eyebrow with dissolve
-    stop music fadeout 1.0
     
     "You are wise in avoiding the goose."
     m "Man I'm tired."
     "You are tired despite doing literally nothing other than deciding whether or not you want to fight a goose."
     "You head to your dorm and rest the night."
+    jump firstlecture
+
+label firstlecture:
     
     scene uwp with dissolve
     
@@ -241,17 +202,21 @@ label flightgoose:
     "You descened down the stairs of RCH"
     ##play sound footstepstairs
     ##scene lecture with dissolve
-    
+    m "Wow!{w} Lectures are going to be so fun!"
+    "Little did you know that you would skip most of your lectures in the not so distant future."
     
     scene mc with dissolve
     
-    "One particular day after you leave your Linear Algebra tutorial, you feel thirsty and the desire to use the washroom."
-    "Upon arriving at the washroom, you find a half-empty water bottle on the seat of the toilet."
+    "One particular day after you leave your Linear Algebra tutorial..."
+    m "Let me use the washroom real quick."
    
     show dasani with dissolve
-    
-    "You move the water bottle and use the toilet."
-    "You are rather thirsty."
+    m "Wait,{w} why is there a half-empty water bottle here?"
+    m "Guess I'll just move it"
+    ##play sound flush
+    m "Hmm...{w} I am rather thirsty..."
+    m "I just spent my entire meal plan at Timmy's the other day..."
+    m "Should I risk the drink?"
     
     menu:
         
@@ -259,69 +224,82 @@ label flightgoose:
             $ points += 1
             jump drink
             
-        "Bidet":
-            jump bidet
+        "Stay thirsty":
+            jump thirst
           
           
 label drink:
     
     scene mc with dissolve
-    show dasani with dissolve
+    show dasani at right with dissolve
+    show thesaviour at left with dissolve
     
-    "???"
-    "Why?"
-    "Someone used that water bottle as a bidet you know."
-    "Didn't anyone teach you to not drink a half-empty water bottle that you found in a bathroom stall?"
-    "Go use it as a bidet instead."
-    "I know we have a shortage of female students.."
-    "but damn you thirsty."
-    "Narrator just broke the forth wall."
+    gs"???"
+    gs"Why?"
+    gs"Didn't anyone teach you to not drink a half-empty water bottle that you found in a bathroom stall?"
+    gs"Why are you so thirsty?{w} In both sense of the word."
     
-    jump bidet
+    scene waterlooair with dissolve
+    "You die of E.Coli that you contracted from the water bottle."
+    "Don't drink random half-empty water bottles that you find in bathroom stalls in the future."
+    
+    jump startgame
 
 
-label bidet:
+label thirst:
     
     scene mc with dissolve
     show dasani with dissolve
     
-    "You use the half empty water bottle as a bidet."
-    "Your anus has never felt so refreshed."
-    "Your anus is no longer hurting from all the ass-rape you have suffered since coming here."
+    m "Drinking a half-empty water bottle that I found in the middle of nowhere is not worth."
+    hide dasani with dissolve
+    show thesaviour with dissolve
+    gs "Good call."
+    gs "You've been thirsty for this long,{w} being thirsty for a little bit longer won't hurt."
     
     jump coop
 
 
 label coop:
-    #CHAPTER 2
-    scene black with dissolve
-    show text "Chapter 2\nWaterloo (Doesn't) Work" with Pause
-    scene black with dissolve
     
-    scene uwp with dissolve
+scene black
+with Pause(1)
+
+show text "{color=#ffffff}{size=+30}Chapter ###{/size}{/color}" with dissolve
+with Pause(2)
+hide text with dissolve
+with Pause(1)
     
-    "You head home to apply to co-op"
-    "Cali or bust you say"
-    "You apply to only the dankest Cali jobs at the pig 4, who wouldn't want you, you have that dank high school mark."
+"You head home to apply to co-op"
+m "Cali or bust"
+"You apply to only the dankest Cali jobs."
+m "I got those side projects.{w} I learned Java from code academy.{w} Easy Web Dev co-op for Google."
     
-    jump before_midterms
+jump before_midterms
     
     
 label before_midterms:
+scene black
+with Pause(1)
+
+show text "{color=#ffffff}{size=+30}Chapter ###{/size}{/color}" with dissolve
+with Pause(2)
+hide text with dissolve
+with Pause(1)
     
-    scene waterlooair with dissolve
+scene waterlooair with dissolve
     
-    "~Time skip to before midterms~"
-    "..."
-    "You have still not been interviewed yet."
-    "You put your resume on /r/uwaterloo but everyone just says its shit."
-    "Feels bad man."
+"~Time skip to before midterms~"
+"..."
+"You have still not been interviewed yet."
+m "Feels bad man."
+
     
-    scene uwp with dissolve
+scene uwp with dissolve
     
-    "You are famished after staying up two nights to study for your midterms. You have been eating nothing but Soylent for the past week."
-    "You require real food."
-    "You head to the plaza in search of food."
+"You are famished after staying up two nights to study for your midterms. You have been eating nothing but Soylent for the past week."
+"You require real food."
+"You head to the plaza in search of food."
     
     jump phathatpaninos
 
@@ -378,10 +356,6 @@ label paninos:
 
 
 label after_midterms:
-    #CHAPTER 4
-    scene black with dissolve
-    show text "Chapter 4\nEarly Aftermath" with Pause
-    scene black with dissolve
     
     scene waterlooair with dissolve
     
