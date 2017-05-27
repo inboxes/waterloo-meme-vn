@@ -274,6 +274,15 @@ navigation section
 /* ==========================================================================
 home section
 ========================================================================== */
+#banner {
+  height: 100px;
+  width: 998px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  margin-left: -499px;
+}
+
 #home {
   background-size: cover;
   background-position: center;
