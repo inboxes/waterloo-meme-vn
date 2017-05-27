@@ -1,20 +1,38 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 194, in script
-    m "1v1 me REEEEEEEEEEEEE!"
-Exception: Sayer 'm' is not defined.
+  File "game/script.rpy", line 402, in script
+    play music hypesong.ogg
+  File "renpy/common/000statements.rpy", line 110, in execute_play_music
+    renpy.music.play(_audio_eval(p["file"]),
+  File "renpy/common/000statements.rpy", line 32, in _audio_eval
+    return eval(expr, locals=store.audio.__dict__)
+  File "game/script.rpy", line 402, in <module>
+    play music hypesong.ogg
+NameError: name 'hypesong' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 194, in script
-    m "1v1 me REEEEEEEEEEEEE!"
-  File "D:\Program Files\Ren'py 6.99.12.4\renpy\ast.py", line 593, in execute
-    who = eval_who(self.who, self.who_fast)
-  File "D:\Program Files\Ren'py 6.99.12.4\renpy\ast.py", line 509, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who.encode("utf-8"))
-Exception: Sayer 'm' is not defined.
+  File "game/script.rpy", line 402, in script
+    play music hypesong.ogg
+  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\ast.py", line 1706, in execute
+    self.call("execute")
+  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\ast.py", line 1724, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\statements.py", line 145, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 110, in execute_play_music
+    renpy.music.play(_audio_eval(p["file"]),
+  File "renpy/common/000statements.rpy", line 32, in _audio_eval
+    return eval(expr, locals=store.audio.__dict__)
+  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\python.py", line 1749, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\Stephen\Desktop\renpy-6.99.12.4-sdk\renpy\python.py", line 1743, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 402, in <module>
+    play music hypesong.ogg
+NameError: name 'hypesong' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 6.99.12.4.2187

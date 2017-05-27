@@ -22,6 +22,8 @@ image pan = "startscene.jpg"
 image thesaviour = "thesaviour.png"
 image eyebrow_battle = im.FactorScale("eyebrow.png", 0.4)
 image player_battle = im.FactorScale(im.Flip("Angra.png", horizontal=True), 1.2)
+image lecture = "lecture.jpg"
+image battleground = "battleground.jpg"
 # characters    
 define f = Character('Feridun Hamdullahpur',color="#9400d3")
 define ga = Character('/u/SseCn8jx',color="#18b5ef")
@@ -85,7 +87,8 @@ label start:
 label introshot:
     #PROLOGUE
     scene black with dissolve
-    show text "Prologue\nWaking Memories" with Pause
+    show text "{color=#ffffff}{size=+30}Prologue\nWaking Memories{/size}{/color}" with Pause(2)
+    hide text with dissolve
     scene black with dissolve
     play music "scene.ogg"
     scene startscene at Pan((0, 0), (580,0), 15.0)
@@ -123,7 +126,8 @@ label startgame:
 
     #CHAPTER 1
     scene black with dissolve
-    show text "Chapter 1\nA Frightening Sight" with Pause
+    show text "{color=#ffffff}{size=+30}Chapter 1\nA Frightening Sight{/size}{/color}" with Pause(2)
+    hide text with dissolve
     scene black with dissolve
 
     play music "begin.ogg"
@@ -135,12 +139,11 @@ label startgame:
     "You are too poor to afford MKV air conditioning so you head towards the UWP dorms."
     
     scene uwp with dissolve
-    ##play sound footstepgravel
-    m "There is goose crap everywhere!"
+    play sound "footstepgravel.ogg"
     "You drag your luggage through the gravel road, trying to avoid much of the crap on the ground as possible."
+    m "There is goose crap everywhere!"
     
     show eyebrow with dissolve
-    
     "Along the way, you are stopped by a goose with eyebrows."
     "The goose raises its eyebrow."
     
@@ -161,17 +164,15 @@ label fightflight:
     play music "Battle! (Wild Pokémon) (Pokémon Ruby & Sapphire).mp3"
     scene black with pixellate
     scene black with squares
-    #img battleground replace uwp
-    scene uwp with dissolve
-    show eyebrow_battle at Position(xpos = 0.8, xanchor=0.5, ypos=0.2, yanchor=0.5) behind black
-    show player_battle at Position(xpos = 0.2, xanchor=0.5, ypos=0.6, yanchor=0.5)behind black
+    scene battleground with dissolve
+    show eyebrow_battle at Position(xpos = 0.73, xanchor=0.5, ypos=0.45, yanchor=0.5) behind black
+    show player_battle at Position(xpos = 0.25, xanchor=0.5, ypos=0.6, yanchor=0.5)behind black
     
     "A wild Goose has appeared!"
     $ pkmn_easter = 0
     
     menu battle:
         "Fight":
-            $ points += 1
             jump fightgoose
         "P*km*n":
             "What's a P*km*n? Never heard of them. Maybe you should pick a real choice."
@@ -195,17 +196,19 @@ label fightgoose:
     
     menu moves:
         "Tackle":
-            "Placeholder, pls write something"
+            "You charge at the goose like a maniac."
         "Roll Pencil":
-            "Placeholder"
+            "You roll a pencil to determine more choices."
+            "This is not a multiple choice exam."
         "Screech":
             #animate
             "You try to screech to lower the goose's defences, but it failed"
             #animate
-            "The wild Goose used laugh. /nIt was super effective! /nYou realize how pathetic you sound and start to cry."
+            "The wild Goose used laugh. \nIt was super effective! \nYou realize how pathetic you sound and start to cry."
         "Hyper Beam":
-            "placeholder"
-            #fuck
+            "Your mouth is agap as you charge up.{w} You let out a burp."
+            "You realize humans can't actually use hyper beam.{w}Obviously."
+            #animate goose attacking
     
     stop music fadeout 1.0
     play sound "honk.ogg"
@@ -220,11 +223,12 @@ label fightgoose:
 
 
 label flightgoose:
-    
+    stop music fadeout 2.0
     scene uwp with dissolve
     show eyebrow with dissolve
     
     "You are wise in avoiding the goose."
+    hide eyebrow with dissolve
     m "Man I'm tired."
     "You are tired despite doing literally nothing other than deciding whether or not you want to fight a goose."
     "You head to your dorm and rest the night."
@@ -243,8 +247,8 @@ label firstlecture:
     m "Wait,{w} this is literally a bombshelter."
     "You must wait until >=19 years of exp before you can actually go the the Bombshelter."
     "You descened down the stairs of RCH"
-    ##play sound footstepstairs
-    ##scene lecture with dissolve
+    play sound "footstepstairs.ogg"
+    scene lecture with dissolve
     m "Wow!{w} Lectures are going to be so fun!"
     "Little did you know that you would skip most of your lectures in the not so distant future."
     
@@ -256,7 +260,7 @@ label firstlecture:
     show dasani with dissolve
     m "Wait,{w} why is there a half-empty water bottle here?"
     m "Guess I'll just move it"
-    ##play sound flush
+    play sound "flush.ogg"
     m "Hmm...{w} I am rather thirsty..."
     m "I just spent my entire meal plan at Timmy's the other day..."
     m "Should I risk the drink?"
@@ -264,7 +268,6 @@ label firstlecture:
     menu:
         
         "Drink":
-            $ points += 1
             jump drink
             
         "Stay thirsty":
@@ -286,7 +289,7 @@ label drink:
     "You die of E.Coli that you contracted from the water bottle."
     "Don't drink random half-empty water bottles that you find in bathroom stalls in the future."
     
-    jump startgame
+    jump firstlecture
 
 
 label thirst:
@@ -307,20 +310,23 @@ label coop:
     
     #CHAPTER 2
     scene black with dissolve
-    show text "Chapter 2\nWaterloo (Doesn't) Work" with Pause
+    show text "{color=#ffffff}{size=+30}Chapter 2\nWaterloo (Doesn't) Work{/size}{/color}" with Pause(2)
+    hide text with dissolve
     scene black with dissolve
-    
+
+    scene uwp with dissolve
     "You head home to apply to co-op"
     m "Cali or bust"
     "You apply to only the dankest Cali jobs."
-    m "I got those side projects.{w} I learned Java from code academy.{w} Easy Web Dev co-op for Google."
+    m "I got those side projects.{w} I learned html from code academy.{w} Easy Web Dev co-op for Google."
     
     jump before_midterms
 
 label before_midterms:
     #Chapter 3
     scene black with dissolve
-    show text "Chapter 3\nCHE 102" with Pause
+    show text "{color=#ffffff}{size=+30}Chapter 3\nCHE 102{/size}{/color}" with Pause(2)
+    hide text with dissolve
     scene black with dissolve
     
     scene waterlooair with dissolve
@@ -358,12 +364,13 @@ label paninos:
     scene paninos with dissolve
     
     "You eat the food before you with haste."
+    m "Thank Paninos for nourishment." 
     "You are filled up and leave."
     
     scene uwp with dissolve
     
     "You ponder about life as you walk back towards your dorm."
-    "'Why no gf?'"
+    m "Why am I so lonely"
     
     play sound "honk.ogg"
     
@@ -371,12 +378,12 @@ label paninos:
     
     show goosegf with dissolve
     
-    "Even the goose from before has a gf."
+    "Even the goose from before has a friend."
     
     hide goosegf with dissolve
     show feels with dissolve
     
-    "At least you aren't in 4B ECE."
+    m "Feels Bad Man"
     
     jump after_midterms
 
@@ -384,7 +391,8 @@ label paninos:
 label after_midterms:
     #CHAPTER 4
     scene black with dissolve
-    show text "Chapter 4\nEarly Aftermath" with Pause
+    show text "{color=#ffffff}{size=+30}Chapter 4\nEarly Aftermath{/size}{/color}" with Pause(2)
+    hide text with dissolve
     scene black with dissolve
     
     scene waterlooair with dissolve
@@ -415,23 +423,25 @@ label after_midterms:
     hide feridun 
     scene uwp with dissolve
     
-    "You go to resume critiques and go to extra help sessions."
-    "You apply to every damn co-op you can."
+    "You go to resume critiques and extra help sessions."
+    "You apply to more co-ops."
     "Your meme game intensifies."
+    stop music fadeout(2)
     
     jump finals
     
 
 label finals:
     
+    
     scene waterlooair with dissolve
     
     "It is exam season"
-    "You head to Toronto to catch up with your high-school friends because you sure haven't made any friends here"
+    "You head to Toronto to catch up with your high-school friends because you haven't made any friends here"
     
     scene ut with dissolve
     
-    "You can feel the normie atmosphere coming from everyone walking the campus"
+    "You can feel the normie atmosphere coming from everyone walking the campus."
     
     stop music fadeout 1.0
     show utstudent with dissolve

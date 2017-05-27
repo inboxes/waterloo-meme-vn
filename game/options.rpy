@@ -32,17 +32,16 @@ define config.version = "Dream Meme Team"
 define gui.about = _("All content belongs to their respectful sources. Click to view original source in browser."
 "\n {a=https://i.ytimg.com/vi/i5MNxjOGKcw/maxresdefault.jpg}Feridun Hamdullaphur{/a}"
 "\n {a=http://i.imgur.com/RHLsVw8.jpg}Paninos{/a}"
-"\n {a=http://www.jafar.ca/phat%20hat-7.JPG}Phathat{/a}"
 "\n {a=https://www.reddit.com/r/uwaterloo/comments/5yb2uf/eyebrow_goose_found_a_gf/}GooseGF{/a}"
 "\n {a=https://static1.squarespace.com/static/58b04223b3db2bbc9663b9bc/t/58b055cd2e69cf0d077c8878/1487951318926/mc.jpg?format=2500w}MC{/a}"
 "\n {a=https://upload.wikimedia.org/wikipedia/commons/5/59/University_of_Toronto_May_2009.jpg}UofT{/a}"
 "\n {a=https://www.youtube.com/watch?v=fCebJodm0lY}300 Violin Orchestra{/a}"
-"\n {a=https://www.youtube.com/watch?v=5ZYgIrqELFw}Shrek Song{/a}"
+"\n {a=https://www.youtube.com/watch?v=5ZYgIrqELFw}Smash Mouth All Stars{/a}"
 "\n {a=https://www.youtube.com/watch?v=YBuAAPNrtSE}Main Menu Song{/a}"
 "\n {a=https://www.youtube.com/watch?v=gNFxmMe1wVQ}Through the wormhole opening{/a}"
-"\n {a=http://i.imgur.com/CPsq8YY.jpg/}Goose Sketch{/a}"
 "\n {a=https://www.reddit.com/r/uwaterloo/comments/5vt3xj/eyebrow_goose_spotted_at_u_waterloo/}Goose with Eyebrow{/a}"
-"\n {a=https://www.youtube.com/watch?v=Z6z9A9nyDpg} Delirious (Boneless) {/a}")
+"\n {a=https://www.youtube.com/watch?v=Z6z9A9nyDpg}Delirious (Boneless) {/a}"
+"\n {a=http://www.oec2005.uwaterloo.ca/images/RCHAudience.jpg}RCH lecture hall {/a}")
 
 
 ## A short name for the game used for executables and directories in the built
