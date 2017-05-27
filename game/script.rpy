@@ -203,7 +203,7 @@ label firstlecture:
     ##play sound footstepstairs
     ##scene lecture with dissolve
     m "Wow!{w} Lectures are going to be so fun!"
-    "Little did you know that you would skip most of your lectures."
+    "Little did you know that you would skip most of your lectures in the not so distant future."
     
     scene mc with dissolve
     
@@ -251,39 +251,55 @@ label thirst:
     scene mc with dissolve
     show dasani with dissolve
     
-    "You use the half empty water bottle as a bidet."
-    "Your anus has never felt so refreshed."
-    "Your anus is no longer hurting from all the ass-rape you have suffered since coming here."
+    m "Drinking a half-empty water bottle that I found in the middle of nowhere is not worth."
+    hide dasani with dissolve
+    show thesaviour with dissolve
+    gs "Good call."
+    gs "You've been thirsty for this long,{w} being thirsty for a little bit longer won't hurt."
     
     jump coop
 
 
 label coop:
     
-    scene uwp with dissolve
+scene black
+with Pause(1)
+
+show text "{color=#ffffff}{size=+30}Chapter ###{/size}{/color}" with dissolve
+with Pause(2)
+hide text with dissolve
+with Pause(1)
     
-    "You head home to apply to co-op"
-    "Cali or bust you say"
-    "You apply to only the dankest Cali jobs at the pig 4, who wouldn't want you, you have that dank high school mark."
+"You head home to apply to co-op"
+m "Cali or bust"
+"You apply to only the dankest Cali jobs."
+m "I got those side projects.{w} I learned Java from code academy.{w} Easy Web Dev co-op for Google."
     
-    jump before_midterms
+jump before_midterms
     
     
 label before_midterms:
+scene black
+with Pause(1)
+
+show text "{color=#ffffff}{size=+30}Chapter ###{/size}{/color}" with dissolve
+with Pause(2)
+hide text with dissolve
+with Pause(1)
     
-    scene waterlooair with dissolve
+scene waterlooair with dissolve
     
-    "~Time skip to before midterms~"
-    "..."
-    "You have still not been interviewed yet."
-    "You put your resume on /r/uwaterloo but everyone just says its shit."
-    "Feels bad man."
+"~Time skip to before midterms~"
+"..."
+"You have still not been interviewed yet."
+m "Feels bad man."
+
     
-    scene uwp with dissolve
+scene uwp with dissolve
     
-    "You are famished after staying up two nights to study for your midterms. You have been eating nothing but Soylent for the past week."
-    "You require real food."
-    "You head to the plaza in search of food."
+"You are famished after staying up two nights to study for your midterms. You have been eating nothing but Soylent for the past week."
+"You require real food."
+"You head to the plaza in search of food."
     
     jump phathatpaninos
 

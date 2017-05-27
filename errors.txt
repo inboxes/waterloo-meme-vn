@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 200: is not terminated with a newline. (Check strings and parenthesis.)
-(Perhaps you left out a " at the end of the first line.)
-        m "I wonder who
+File "game/script.rpy", line 277: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
+    jump before_midterms
+    ^
 
 Ren'Py Version: Ren'Py 6.99.12.4.2187
