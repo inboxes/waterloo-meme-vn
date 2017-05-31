@@ -27,6 +27,7 @@ image battleground = "battleground.jpg"
 image playerfull = "playerhealthfull.png"
 image playerempty = "playerhealthempty.png"
 image goosehealth = "goosehealth.png"
+image dorm = "dorm.jpg"
 # characters    
 define f = Character('Feridun Hamdullahpur',color="#9400d3")
 define ga = Character('/u/SseCn8jx',color="#18b5ef")
@@ -153,7 +154,7 @@ label startgame:
     scene uwp with dissolve
     play sound "footstepgravel.ogg"
     "You drag your luggage through the gravel road, trying to avoid much of the crap on the ground as possible."
-    m "There is goose crap everywhere!"
+    m "There is goose shit everywhere!"
     
     show eyebrow with dissolve
     "Along the way, you are stopped by a goose with eyebrows."
@@ -189,7 +190,7 @@ label fightflight:
         "Fight":
             jump fightgoose
         "P*km*n":
-            "What's a P*km*n? Never heard of them. Maybe you should pick a real choice."
+            "What's a Pokerman? Never heard of them. Maybe you should pick a real choice."
             $ pkmn_easter += 1
             #unlocks special scene later
             jump battle
@@ -269,11 +270,17 @@ label flightgoose:
     m "Man I'm tired."
     "You are tired despite doing literally nothing other than deciding whether or not you want to fight a goose."
     "You head to your dorm and rest the night."
+    scene dorm with dissolve
+    m "Ahh...{w} so comfortable."
+    m "The mattress might be a rock but I feel like I could get used to sleeping here."
+    "Little did you know that you won't be getting much sleep."
+    "Your dorm is already a mess."
     jump firstlecture
 
 label firstlecture:
     
-    scene uwp with dissolve
+    scene black
+    scene dorm with dissolve
     
     "You are well rested."
     "You begin heading towards your first lecture."
@@ -353,6 +360,7 @@ label coop:
 
     scene uwp with dissolve
     "You head home to apply to co-op"
+    scene dorm with dissolve
     m "Cali or bust"
     "You apply to only the dankest Cali jobs."
     m "I got those side projects.{w} I learned html from code academy.{w} Easy Web Dev co-op for Google."
@@ -374,7 +382,7 @@ label before_midterms:
     gs "You have still not been interviewed yet."
     m "Feels bad man."
     
-    scene uwp with dissolve
+    scene dorm with dissolve
     
     "You are famished after staying up two nights to study for your midterms. You have been eating nothing but Soylent for the past week."
     m "Food..."
@@ -442,8 +450,9 @@ label after_midterms:
     "You have busted"
     "(¬‿¬)"
     "The pressure is on."
+    play sound "hypesong.ogg" fadein(3)
     "You receive an email one day asking you to meet a councillor about your grades."
-    
+
     scene feridunback with dissolve
     show feriduncart with dissolve
     
@@ -457,13 +466,13 @@ label after_midterms:
     
     "Feridun is love, Feridun is life."
     
-    hide feridun 
+    hide feridun with dissolve
     scene uwp with dissolve
     
     "You go to resume critiques and extra help sessions."
     "You apply to more co-ops."
     "Your meme game intensifies."
-    stop music fadeout(2)
+    stop sound fadeout(2)
     
     jump finals
     
@@ -502,7 +511,7 @@ label finals:
             "You keep studying."
             "..."
             "Two days passed."
-            "You are too exhausted.{w} The world darkened before your eyes."
+            "You are too exhausted.{w} The world darkenes before your eyes."
     
     ## need new ending
     jump ending
