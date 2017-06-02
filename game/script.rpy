@@ -28,6 +28,7 @@ image playerfull = "playerhealthfull.png"
 image playerempty = "playerhealthempty.png"
 image goosehealth = "goosehealth.png"
 image dorm = "dorm.jpg"
+image PAC = "PAC.jpg"
 # characters    
 define f = Character('Feridun Hamdullahpur',color="#9400d3")
 define ga = Character('/u/SseCn8jx',color="#18b5ef")
@@ -429,7 +430,30 @@ label paninos:
     show feels with dissolve
     
     m "Feels Bad Man"
+    jump CHE102
     
+label CHE102:
+    scene PAC with dissolve
+    "You walk into PAC with pencil in hand, ready to fight."
+    "The greatest challenge of your academic carrier lies ahead."
+    "Ten multiple choice."
+    "1/4 chance to get it correct."
+    "Here comes CHE 102..."
+    show cheleft with moveinleft
+    show cheright with moveinright
+    show chemiddle with zoomin
+    hide cheleft with moveoutleft
+    hide cheright with moveoutright
+    hide chemiddle with zoomout
+    m "Don't worry I got this!"
+    "You realize at the first question,{w} you clearly don't got this."
+    "A tear rolls down your cheek as you prepare to accept your death."
+    show thesaviour with dissolve
+    gs "Use the power of RNG"
+    gs "Use the pencil!"
+    m "SIGMA STRIKER V!"
+    "A?{w=1.0}B?{w=1.0}C?{w=1.0}D?{w=1.0}E?"
+    $ randomnum = renpy.random.randint(1,2) 
     jump after_midterms
 
 
